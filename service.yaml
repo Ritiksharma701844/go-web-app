@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"go-web-app","namespace":"default"},"spec":{"ports":[{"port":80,"protocol":"TCP","targetPort":8080}],"selector":{"app":"go-web-app"},"type":"LoadBalancer"}}
+  creationTimestamp: "2026-03-06T11:35:07Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  name: go-web-app
+  namespace: default
+  resourceVersion: "15039"
+  uid: 66d887db-067a-499f-bb29-f88c5fb38e16
+spec:
+  allocateLoadBalancerNodePorts: true
+  clusterIP: 10.100.138.98
+  clusterIPs:
+  - 10.100.138.98
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - nodePort: 31387
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: go-web-app
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: a66d887db067a499fbb29f88c5fb38e1-1319233967.ap-south-1.elb.amazonaws.com
